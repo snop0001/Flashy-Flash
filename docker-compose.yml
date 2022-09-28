@@ -1,0 +1,28 @@
+version: '3'
+services:
+    backend:
+      image: node:latest
+      volumes: 
+        - ./backend:/usr/src/app
+      working_dir: /usr/src/app
+      command: node start.js
+      ports:
+        - "3010:3010"
+      networks:
+        - flashNetwork
+      
+      
+    frontend:
+      image: node:latest
+      volumes: 
+        - ./frontend:/usr/src/app
+      working_dir: /usr/src/app
+      command: npm run dev
+      ports:
+        - "3000:3000"
+      networks:
+        - flashNetwork
+
+networks:
+  flashNetwork:
+    driver: bridge
