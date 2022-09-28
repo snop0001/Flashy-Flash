@@ -10,9 +10,9 @@ router.get('/', (req, res, next) => {
   res.json('Welcome to Flashy Flash app!');
 });
 
-router.get('/progress',getPlayersProgress);
-router.get('/dutch',getDutchGoogleSheet);
-router.get('/english',getEnglishGoogleSheet);
+router.get('/progress',cors(),getPlayersProgress);
+router.get('/dutch', cors(),getDutchGoogleSheet);
+router.get('/english',cors(),getEnglishGoogleSheet);
 
 router.post('/setPlayer',cors(), setPlayer);
 
